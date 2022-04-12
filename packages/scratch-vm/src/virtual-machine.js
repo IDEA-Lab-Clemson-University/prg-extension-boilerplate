@@ -278,6 +278,15 @@ class VirtualMachine extends EventEmitter {
             this.emit(Runtime.BLOCK_GLOW_OFF, glowData);
         });
         this.runtime.on(Runtime.PROJECT_START, () => {
+            // This is the event we want to collect our project data from. 
+            // This event is emitted when the Green Flag is clicked.
+
+            // Here, we log the data in JSON format which will be saved in an .sb3 file. This lacks any added assets
+            console.log(this.toJSON());
+
+            // We will then need to decide how to save this information to our database. Do we want to save the full .sb3 file? Do we simply want to save the JSON file?
+
+            
             this.emit(Runtime.PROJECT_START);
         });
         this.runtime.on(Runtime.PROJECT_RUN_START, () => {
