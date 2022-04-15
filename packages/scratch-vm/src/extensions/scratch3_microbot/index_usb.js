@@ -45,7 +45,7 @@ class MicrobitRobot {
         this.right_line = 0;
         this.last_reading = 0;
         
-    
+
         this.scratch_vm.on('PROJECT_STOP_ALL', this.resetRobot.bind(this));
     
         this.connectToExtension();

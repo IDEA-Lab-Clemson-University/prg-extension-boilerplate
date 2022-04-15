@@ -286,9 +286,16 @@ class VirtualMachine extends EventEmitter {
 
             // We will then need to decide how to save this information to our database. Do we want to save the full .sb3 file? Do we simply want to save the JSON file?
 
-            
+
             this.emit(Runtime.PROJECT_START);
         });
+
+        this.runtime.on(Runtime.PROJECT_SAVE_TO_DB, () => {
+            console.log('Here we are, saving this hopefully')
+
+            this.emit(Runtime.PROJECT_SAVE_TO_DB);
+        });
+
         this.runtime.on(Runtime.PROJECT_RUN_START, () => {
             this.emit(Runtime.PROJECT_RUN_START);
         });
@@ -663,6 +670,10 @@ class VirtualMachine extends EventEmitter {
                 resolve(this.loadProject(body));
             })
         })
+    }
+
+    uploadProjectToDBFromStarFlag () {
+
     }
 
     /**

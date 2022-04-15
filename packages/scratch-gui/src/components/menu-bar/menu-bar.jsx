@@ -212,6 +212,8 @@ class MenuBar extends React.Component {
     handleClickSave () {
         this.props.onClickSave();
         this.props.onRequestCloseFile();
+
+        console.log("Clicked save from menu-bar.jsx")
     }
     handleClickSaveAsCopy () {
         this.props.onClickSaveAsCopy();
@@ -253,6 +255,9 @@ class MenuBar extends React.Component {
     }
     getSaveToComputerHandler (downloadProjectCallback) {
         return () => {
+
+            console.log('getSaveToComputerHandler from menu-bar.jsx');
+
             this.props.onRequestCloseFile();
             downloadProjectCallback();
             if (this.props.onProjectTelemetryEvent) {

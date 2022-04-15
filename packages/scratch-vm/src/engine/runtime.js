@@ -493,6 +493,14 @@ class Runtime extends EventEmitter {
     }
 
     /**
+     * Called when green flag clicked
+     * @const {string}
+     */
+         static get PROJECT_SAVE_TO_DB () {
+            return 'PROJECT_SAVE_TO_DB';
+        }
+
+    /**
      * Event name when threads start running.
      * Used by the UI to indicate running status.
      * @const {string}
