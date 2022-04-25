@@ -108,6 +108,20 @@ class TPBot {
                         }
                     }
                 },
+                ,
+                '---',
+                {
+                    opcode: 'doNothing',
+                    blockType: BlockType.COMMAND,
+                    text: formatMessage({
+                        id: '1',
+                        default: 'Cut Vegetables',
+                        description: ''
+                    }),
+                    arguments: {
+                        
+                    }
+                },
                 {
                     opcode: 'setLedDisplay',
                     blockType: BlockType.COMMAND,

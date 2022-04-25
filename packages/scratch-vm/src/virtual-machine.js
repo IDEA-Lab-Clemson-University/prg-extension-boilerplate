@@ -32,7 +32,8 @@ const CORE_EXTENSIONS = [
     'microbitRobot',
     'teachableMachine',
     'textClassification',
-    'tpbot'
+    'tpbot',
+    'makebiryani'
     // 'motion',
     // 'looks',
     // 'sound',
