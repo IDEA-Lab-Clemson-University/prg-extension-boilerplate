@@ -18,12 +18,20 @@ const builtinExtensions = {
     music: () => require('../extensions/scratch3_music'),
     microbit: () => require('../extensions/scratch3_microbit'),
     text2speech: () => require('../extensions/scratch3_text2speech'),
+    speech2text: () => require('../extensions/scratch3_speech2text'),
     translate: () => require('../extensions/scratch3_translate'),
     videoSensing: () => require('../extensions/scratch3_video_sensing'),
     ev3: () => require('../extensions/scratch3_ev3'),
     makeymakey: () => require('../extensions/scratch3_makeymakey'),
     boost: () => require('../extensions/scratch3_boost'),
-    gdxfor: () => require('../extensions/scratch3_gdx_for')
+    gdxfor: () => require('../extensions/scratch3_gdx_for'),
+    arduinoRobot: () => require('../extensions/scratch3_arduinobot'),
+    gizmoRobot: () => require('../extensions/scratch3_gizmo'),
+    microbitRobot: () => require('../extensions/scratch3_microbot'),
+    tpbot: () => require('../extensions/scratch3_tpbot'),
+    makebiryani:()=>require('../extensions/scratch3_makebiryani'),
+    teachableMachine: () => require('../extensions/scratch3_teachable_machine'),
+    textClassification: () => require('../extensions/scratch3_text_classification')
 };
 
 /**
@@ -107,6 +115,7 @@ class ExtensionManager {
      * @returns {boolean} - true if loaded, false otherwise.
      */
     isExtensionLoaded (extensionID) {
+        console.log('isExtensionLoaded ' + extensionID);
         return this._loadedExtensions.has(extensionID);
     }
 
@@ -147,7 +156,6 @@ class ExtensionManager {
                 log.warn(message);
                 return Promise.resolve();
             }
-
             const extension = builtinExtensions[extensionURL]();
             const extensionInstance = new extension(this.runtime);
             const serviceName = this._registerInternalExtension(extensionInstance);
